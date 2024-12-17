@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:shoppingapp/Admin/add_product.dart';
 import 'package:shoppingapp/Admin/admin_login.dart';
 import 'package:shoppingapp/pages/bottomnav.dart';
 import 'package:shoppingapp/pages/home.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AdminLogin(),
+      home: AddProduct(),
     );
   }
 }

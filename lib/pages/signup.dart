@@ -59,7 +59,7 @@ class _SignupState extends State<Signup> {
                   fontSize: 20,
                 ),
               )));
-        } else if (e.code == "emai-already-in-use") {
+        } else if (e.code == "email-already-in-use") {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               backgroundColor: Colors.redAccent,
               content: Text(
@@ -84,7 +84,7 @@ class _SignupState extends State<Signup> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset("images/l4.webp"),
+                Image.asset("images/Felix-in-LV-3.jpg"),
                 SizedBox(
                   height: 10,
                 ),

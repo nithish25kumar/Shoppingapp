@@ -65,7 +65,7 @@ class _LoginState extends State<Login> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset("images/l4.webp"),
+                Image.asset("images/Felix-in-LV-4.jpg"),
                 SizedBox(
                   height: 10,
                 ),
