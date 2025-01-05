@@ -60,7 +60,7 @@ class _CategoryProductState extends State<CategoryProduct> {
                 DocumentSnapshot ds = snapshot.data.docs[index];
                 return Container(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10)),
@@ -71,8 +71,8 @@ class _CategoryProductState extends State<CategoryProduct> {
                       ),
                       Image.network(
                         ds["Image"],
-                        height: 120,
-                        width: 120,
+                        height: 150,
+                        width: 150,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(
@@ -93,7 +93,7 @@ class _CategoryProductState extends State<CategoryProduct> {
                                 fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
-                            width: 30.0,
+                            width: 20.0,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -107,10 +107,10 @@ class _CategoryProductState extends State<CategoryProduct> {
                                           price: ds["Price"])));
                             },
                             child: Container(
-                              padding: EdgeInsets.all(5),
+                              padding: EdgeInsets.all(4),
                               decoration: BoxDecoration(
                                   color: Colors.deepOrange,
-                                  borderRadius: BorderRadius.circular(8)),
+                                  borderRadius: BorderRadius.circular(5)),
                               child: Icon(
                                 Icons.add,
                                 color: Colors.white,

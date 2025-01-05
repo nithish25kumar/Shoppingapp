@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:shoppingapp/Admin/add_product.dart';
 import 'package:shoppingapp/Admin/home_admin.dart';
 import 'package:shoppingapp/widget/support_widget.dart';
 
@@ -79,7 +80,7 @@ class _AdminLoginState extends State<AdminLogin> {
               ),
               GestureDetector(
                 onTap: () {
-                  loginAdmin();
+                  AdminLogin();
                 },
                 child: Center(
                   child: Container(

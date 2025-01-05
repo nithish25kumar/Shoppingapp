@@ -43,7 +43,7 @@ class _AddProductState extends State<AddProduct> {
         "Detail": detailcontroller.text,
         "Category": value, // Ensure 'value' is not null
       };
-      await DatabaseMethods().addProduct(addProduct, value!).then((_) {
+      await DatabaseMethods().addProduct(addProduct, value!).then((value) {
         setState(() {
           selectedImage = null;
           namecontroller.text = "";

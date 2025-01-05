@@ -41,46 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAXFH2gJ7yBxTWQzJZCst2MAxfX-BTb804',
-    appId: '1:979391535310:web:65b4d19ee6defed7c8989f',
-    messagingSenderId: '979391535310',
-    projectId: 'shopapp-1010',
-    authDomain: 'shopapp-1010.firebaseapp.com',
-    storageBucket: 'shopapp-1010.firebasestorage.app',
+    apiKey: 'AIzaSyAVNm4j1gVfx3DnIjKLVZfTlVpa-97sg74',
+    appId: '1:473666894846:web:db53db870d5fc83eb95eaf',
+    messagingSenderId: '473666894846',
+    projectId: 'pizza-delivery-2d5d2',
+    authDomain: 'pizza-delivery-2d5d2.firebaseapp.com',
+    storageBucket: 'pizza-delivery-2d5d2.appspot.com',
+    measurementId: 'G-LRF9192PWP',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBl12zLyqWi7ba2jbpV61QCcq8bzkH5FvM',
-    appId: '1:979391535310:android:0394d133f0d85c95c8989f',
-    messagingSenderId: '979391535310',
-    projectId: 'shopapp-1010',
-    storageBucket: 'shopapp-1010.firebasestorage.app',
+    apiKey: 'AIzaSyAB2kaVPuI6ERwoOI6ZmJ22BQVOoW36ADk',
+    appId: '1:473666894846:android:a4e3de785694515ab95eaf',
+    messagingSenderId: '473666894846',
+    projectId: 'pizza-delivery-2d5d2',
+    storageBucket: 'pizza-delivery-2d5d2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCkDu9sXtOFYQiJ8nfTjyBC7w318i4gf9E',
-    appId: '1:979391535310:ios:ac6eca042d5ea9a0c8989f',
-    messagingSenderId: '979391535310',
-    projectId: 'shopapp-1010',
-    storageBucket: 'shopapp-1010.firebasestorage.app',
-    iosBundleId: 'com.example.shoppingapp',
+    apiKey: 'AIzaSyA7ChuWRcJd-54znSPhIorDuy5LXhbitdo',
+    appId: '1:473666894846:ios:3bb7833a97f67165b95eaf',
+    messagingSenderId: '473666894846',
+    projectId: 'pizza-delivery-2d5d2',
+    storageBucket: 'pizza-delivery-2d5d2.appspot.com',
+    iosBundleId: 'com.example.shoppingapp01',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCkDu9sXtOFYQiJ8nfTjyBC7w318i4gf9E',
-    appId: '1:979391535310:ios:ac6eca042d5ea9a0c8989f',
-    messagingSenderId: '979391535310',
-    projectId: 'shopapp-1010',
-    storageBucket: 'shopapp-1010.firebasestorage.app',
-    iosBundleId: 'com.example.shoppingapp',
+    apiKey: 'AIzaSyA7ChuWRcJd-54znSPhIorDuy5LXhbitdo',
+    appId: '1:473666894846:ios:3bb7833a97f67165b95eaf',
+    messagingSenderId: '473666894846',
+    projectId: 'pizza-delivery-2d5d2',
+    storageBucket: 'pizza-delivery-2d5d2.appspot.com',
+    iosBundleId: 'com.example.shoppingapp01',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAXFH2gJ7yBxTWQzJZCst2MAxfX-BTb804',
-    appId: '1:979391535310:web:16217b77cb1c149ec8989f',
-    messagingSenderId: '979391535310',
-    projectId: 'shopapp-1010',
-    authDomain: 'shopapp-1010.firebaseapp.com',
-    storageBucket: 'shopapp-1010.firebasestorage.app',
+    apiKey: 'AIzaSyAVNm4j1gVfx3DnIjKLVZfTlVpa-97sg74',
+    appId: '1:473666894846:web:0cbb76757db0b6fab95eaf',
+    messagingSenderId: '473666894846',
+    projectId: 'pizza-delivery-2d5d2',
+    authDomain: 'pizza-delivery-2d5d2.firebaseapp.com',
+    storageBucket: 'pizza-delivery-2d5d2.appspot.com',
+    measurementId: 'G-G8JJ5F0VFK',
   );
 }
