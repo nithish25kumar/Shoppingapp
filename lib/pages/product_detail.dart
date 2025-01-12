@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:shoppingapp/services/constant.dart';
+import 'package:shoppingapp/services/database.dart';
+import 'package:shoppingapp/services/shared_pref.dart';
 import 'package:shoppingapp/widget/support_widget.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,6 +20,26 @@ class ProductDetail extends StatefulWidget {
 }
 
 class _ProductDetailState extends State<ProductDetail> {
+  String? name, mail, image;
+  getthesharedpref() async {
+    name = await SharedPreferenceHelper().getUserName();
+    mail = await SharedPreferenceHelper().getUserEmail();
+    image = await SharedPreferenceHelper().getUserImage();
+    setState(() {});
+  }
+
+  ontheload() async {
+    await getthesharedpref();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    ontheload();
+  }
+
   Map<String, dynamic>? paymentIntent;
   @override
   Widget build(BuildContext context) {
@@ -36,7 +58,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                    margin: EdgeInsets.only(left: 20.0),
+                    margin: EdgeInsets.only(left: 2.0),
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         border: Border.all(),
@@ -150,6 +172,15 @@ class _ProductDetailState extends State<ProductDetail> {
   displayPaymentSheet() async {
     try {
       await Stripe.instance.presentPaymentSheet();
+      Map<String, dynamic> orderInfoMap = {
+        "Product ": widget.name,
+        "Price ": widget.price,
+        "Name": name,
+        "Email": mail,
+        "Image": image,
+        "ProductImage": widget.image
+      };
+      await DatabaseMethods().orderDetails(orderInfoMap);
       showDialog(
         context: context,
         builder: (_) => AlertDialog(

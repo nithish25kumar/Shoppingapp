@@ -14,6 +14,7 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   Stripe.publishableKey = publishablekey;
   // Initialize Firebase with platform-specific options
   await Firebase.initializeApp(
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Bottomnav(),
+      home: Signup(),
     );
   }
 }
