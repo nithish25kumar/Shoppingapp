@@ -128,16 +128,17 @@ class _ProductDetailState extends State<ProductDetail> {
       paymentIntent = await createPaymentIntent(amount, 'INR');
 
       // Initialize the payment sheet
-      await Stripe.instance.initPaymentSheet(
-        paymentSheetParameters: SetupPaymentSheetParameters(
-          paymentIntentClientSecret: paymentIntent?['client_secret'],
-          style: ThemeMode.dark,
-          merchantDisplayName: 'Nathan',
-        ),
-      );
+      await Stripe.instance
+          .initPaymentSheet(
+              paymentSheetParameters: SetupPaymentSheetParameters(
+            paymentIntentClientSecret: paymentIntent?['client_secret'],
+            style: ThemeMode.dark,
+            merchantDisplayName: 'Nathan',
+          ))
+          .then((value) {});
 
       // Display the payment sheet to the user
-      await displayPaymentSheet();
+      displayPaymentSheet();
     } catch (e, s) {
       // Log the error
       print('Exception: $e$s');
@@ -148,38 +149,52 @@ class _ProductDetailState extends State<ProductDetail> {
 
   displayPaymentSheet() async {
     try {
-      await Stripe.instance.presentPaymentSheet().then((value) async {
-        showDialog(
-            context: context,
-            builder: (_) => AlertDialog(
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.check_circle,
-                            color: Colors.green,
-                          ),
-                          Text("Payment Successfull")
-                        ],
-                      )
-                    ],
-                  ),
-                ));
-        paymentIntent = null;
-      }).onError((error, stackTrace) {
-        print("Error is : ---> $error $stackTrace");
-      });
-    } on StripeException catch (e) {
-      print("Error is : --->$e");
+      await Stripe.instance.presentPaymentSheet();
       showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.check_circle, color: Colors.green),
+                  SizedBox(width: 10),
+                  Text("Payment Successful"),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+      paymentIntent =
+          null; // Reset the payment intent after a successful payment
+    } on StripeException catch (e) {
+      if (e.error.code == FailureCode.Canceled) {
+        // User canceled the payment flow
+        print("Payment canceled by the user.");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Payment was canceled.")),
+        );
+      } else {
+        // Other Stripe errors
+        print("StripeException: ${e.error.localizedMessage}");
+        showDialog(
           context: context,
           builder: (_) => AlertDialog(
-                content: Text("Cancelled"),
-              ));
+            content: Text("Payment failed: ${e.error.localizedMessage}"),
+          ),
+        );
+      }
     } catch (e) {
-      print('$e');
+      // General exceptions
+      print("An error occurred: $e");
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          content: Text("An unexpected error occurred. Please try again."),
+        ),
+      );
     }
   }
 
